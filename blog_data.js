@@ -545,7 +545,6 @@ const blogPosts = [
       <h3>Conclusion</h3>
       <p>Generic medicines (farmaci equivalenti) represent one of the best opportunities to save money on medications in Italy without compromising on quality or effectiveness. They're rigorously tested, tightly regulated, and proven to be as safe and effective as brand-name drugs. By understanding how generics work and trusting in the Italian regulatory system, you can confidently accept generic alternatives when offered by your pharmacist, knowing you're receiving the same quality medication at a significantly lower cost.</p>
     `
-  }
   },
   {
     num: "007",
