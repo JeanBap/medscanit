@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MedScanIT Blog - Expert guides on Italian pharmacies, medicines, and health information for English speakers in Italy.">
+  <meta name="keywords" content="Italian pharmacy, medicines, health guide, farmacia, medication advice">
+  <meta name="author" content="MedScanIT">
+  <meta property="og:title" content="MedScanIT Blog - Italian Pharmacy & Health Guide">
+  <meta property="og:description" content="Learn how to navigate Italian pharmacies, understand medications, and access health information.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://medscanit.netlify.app/">
+  <meta property="og:image" content="https://medscanit.netlify.app/og-image.png">
+  <meta name="theme-color" content="#1a73e8">
+
+  <title>MedScanIT Blog - Italian Pharmacy & Health Guide</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #1a73e8;
+      --secondary-green: #34a853;
+      --dark-text: #202124;
+      --light-bg: #ffffff;
+      --gray-light: #f8f9fa;
+      --gray-border: #dadce0;
+      --text-secondary: #5f6368;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--light-bg);
+      border-bottom: 1px solid var(--gray-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark-text);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    .nav-links .back-to-app {
+      color: var(--primary-blue);
+      background-color: var(--gray-light);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #f0f4ff 0%, #f8f9fa 100%);
+      padding: 3rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-text);
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* Filter Section */
+    .filter-section {
+      margin-bottom: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .category-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      border: 2px solid var(--gray-border);
+      background-color: var(--light-bg);
+      color: var(--dark-text);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--primary-blue);
+      color: var(--primary-blue);
+    }
+
+    .filter-btn.active {
+      background-color: var(--primary-blue);
+      color: white;
+      border-color: var(--primary-blue);
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .blog-card {
+      background-color: var(--light-bg);
+      border: 1px solid var(--gray-border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .blog-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      border-color: var(--primary-blue);
+      transform: translateY(-2px);
+    }
+
+    .blog-card-header {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #f0f4ff 0%, #f8f9fa 100%);
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    .blog-category {
+      display: inline-block;
+      background-color: var(--secondary-green);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .blog-card-header h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      line-height: 1.3;
+      color: var(--dark-text);
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-tldr {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .blog-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gray-border);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .blog-date {
+      font-weight: 500;
+    }
+
+    .blog-readtime {
+      font-style: italic;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .empty-state h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark-text);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--gray-light);
+      border-top: 1px solid var(--gray-border);
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--dark-text);
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-blue);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--gray-border);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .category-filter {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .blog-card-header h2 {
+        font-size: 1.2rem;
+      }
+
+      main {
+        padding: 1.5rem 1rem;
+      }
+
+      .blog-card-header {
+        padding: 1rem;
+      }
+
+      .blog-card-body {
+        padding: 1rem;
+      }
+    }
+
+    /* Accessibility */
+    a:focus, button:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">MedScanIT Blog</a>
+      <ul class="nav-links">
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="https://medscanit.netlify.app" class="back-to-app">Back to App</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Italian Pharmacy & Health Blog</h1>
+    <p>Expert guides to help you navigate Italian pharmacies, understand medications, and make informed health decisions.</p>
+  </section>
+
+  <main id="blog">
+    <div class="filter-section">
+      <span style="color: var(--text-secondary); font-weight: 500;">Filter by category:</span>
+      <div class="category-filter">
+        <button class="filter-btn active" data-filter="all">All Posts</button>
+        <button class="filter-btn" data-filter="pharmacy-guide">Pharmacy Guide</button>
+        <button class="filter-btn" data-filter="local-guide">Local Guide</button>
+        <button class="filter-btn" data-filter="natural-remedies">Natural Remedies</button>
+      </div>
+    </div>
+
+    <div class="blog-grid" id="blog-grid">
+      <!-- Posts will be loaded here by JavaScript -->
+    </div>
+
+    <div class="empty-state" id="empty-state" style="display: none;">
+      <h3>No posts found</h3>
+      <p>Try adjusting your filters to see more posts.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About MedScanIT</h4>
+        <p>MedScanIT is a comprehensive pharmacy and health PWA designed to help English speakers navigate Italian healthcare and medications.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <p><a href="https://medscanit.netlify.app">Main App</a></p>
+        <p><a href="#blog">Blog</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Disclaimer</h4>
+        <p>This blog is for informational purposes only and is not a substitute for professional medical advice. Always consult a healthcare provider before making medical decisions.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 MedScanIT. All rights reserved. | <a href="#" style="color: var(--text-secondary);">Privacy Policy</a> | <a href="#" style="color: var(--text-secondary);">Terms of Service</a></p>
+    </div>
+  </footer>
+
+  <script src="blog_data.js"></script>
+  <script>
+    // Initialize blog on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const grid = document.getElementById('blog-grid');
+      const emptyState = document.getElementById('empty-state');
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      let currentFilter = 'all';
+
+      // Function to format date
+      function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString + 'T00:00:00').toLocaleDateString('en-US', options);
+      }
+
+      // Function to slugify category
+      function slugifyCategory(category) {
+        return category.toLowerCase().replace(/\s+/g, '-');
+      }
+
+      // Function to render posts
+      function renderPosts(filter = 'all') {
+        const posts = getPublishedPosts();
+        grid.innerHTML = '';
+
+        let filteredPosts = posts;
+        if (filter !== 'all') {
+          filteredPosts = posts.filter(post => slugifyCategory(post.category) === filter);
+        }
+
+        if (filteredPosts.length === 0) {
+          grid.style.display = 'none';
+          emptyState.style.display = 'block';
+          return;
+        }
+
+        grid.style.display = 'grid';
+        emptyState.style.display = 'none';
+
+        filteredPosts.forEach(post => {
+          const card = document.createElement('div');
+          card.className = 'blog-card';
+          card.style.cursor = 'pointer';
+
+          const dateFormatted = formatDate(post.publishDate);
+          const categorySlug = slugifyCategory(post.category);
+
+          card.innerHTML = `
+            <div class="blog-card-header">
+              <span class="blog-category">${post.category}</span>
+              <h2>${post.title}</h2>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-tldr">${post.tldr}</p>
+              <div class="blog-card-footer">
+                <span class="blog-date">${dateFormatted}</span>
+                <span class="blog-readtime">${post.readTime}</span>
+              </div>
+            </div>
+          `;
+
+          card.addEventListener('click', function() {
+            window.location.href = `post.html?slug=${post.slug}`;
+          });
+
+          grid.appendChild(card);
+        });
+      }
+
+      // Filter button event listeners
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          currentFilter = this.dataset.filter;
+          renderPosts(currentFilter);
+        });
+      });
+
+      // Initial render
+      renderPosts();
+    });
+  </script>
+</body>
+</html>

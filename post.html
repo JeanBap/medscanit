@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MedScanIT Blog Post">
+  <meta property="og:title" content="MedScanIT Blog">
+  <meta property="og:description" content="Italian pharmacy and health guides for English speakers.">
+  <meta property="og:type" content="article">
+  <meta name="theme-color" content="#1a73e8">
+
+  <title>MedScanIT Blog - Italian Pharmacy & Health Guide</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-blue: #1a73e8;
+      --secondary-green: #34a853;
+      --dark-text: #202124;
+      --light-bg: #ffffff;
+      --gray-light: #f8f9fa;
+      --gray-border: #dadce0;
+      --text-secondary: #5f6368;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.8;
+      color: var(--dark-text);
+      background-color: var(--light-bg);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--light-bg);
+      border-bottom: 1px solid var(--gray-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark-text);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* Article Container */
+    article {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .article-header {
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--gray-border);
+      padding-bottom: 2rem;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .article-category {
+      display: inline-block;
+      background-color: var(--secondary-green);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .article-title {
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--dark-text);
+    }
+
+    .article-meta-info {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .article-date {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .article-readtime {
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* Article Content */
+    .article-content {
+      line-height: 1.9;
+    }
+
+    .article-content h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      margin: 1.8rem 0 1rem 0;
+      color: var(--dark-text);
+    }
+
+    .article-content p {
+      margin-bottom: 1.3rem;
+      text-align: justify;
+    }
+
+    .article-content ul, .article-content ol {
+      margin: 1.3rem 0 1.3rem 2rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.7rem;
+    }
+
+    .article-content strong {
+      color: var(--dark-text);
+      font-weight: 600;
+    }
+
+    .article-content em {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    /* Navigation */
+    .article-nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .back-button, .home-button {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .back-button {
+      background-color: var(--gray-light);
+      color: var(--dark-text);
+      border: 1px solid var(--gray-border);
+    }
+
+    .back-button:hover {
+      background-color: var(--gray-border);
+      color: var(--primary-blue);
+    }
+
+    .home-button {
+      background-color: var(--primary-blue);
+      color: white;
+    }
+
+    .home-button:hover {
+      background-color: #1555d2;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--gray-light);
+      border-top: 1px solid var(--gray-border);
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--dark-text);
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-blue);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--gray-border);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-secondary);
+    }
+
+    .error-message {
+      background-color: #fce4ec;
+      border: 1px solid #f48fb1;
+      color: #c2185b;
+      padding: 1.5rem;
+      border-radius: 6px;
+      margin-top: 2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      article {
+        padding: 1.5rem 1rem;
+      }
+
+      .article-title {
+        font-size: 1.6rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.2rem;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .article-title {
+        font-size: 1.4rem;
+      }
+
+      article {
+        padding: 1rem;
+      }
+
+      .article-nav {
+        flex-direction: column;
+      }
+
+      .back-button, .home-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Accessibility */
+    a:focus, button:focus {
+      outline: 2px solid var(--primary-blue);
+      outline-offset: 2px;
+    }
+  </style>
+
+  <script type="application/ld+json" id="schema-json">
+    {}
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">MedScanIT Blog</a>
+      <ul class="nav-links">
+        <li><a href="/">All Posts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <article>
+    <div class="loading" id="loading">Loading post...</div>
+    <div id="post-content" style="display: none;">
+      <!-- Post content will be inserted here -->
+    </div>
+    <div class="error-message" id="error-message" style="display: none;">
+      <strong>Post not found</strong>
+      <p>The post you're looking for doesn't exist or hasn't been published yet.</p>
+      <a href="/" style="color: #c2185b; font-weight: 500;">Back to all posts</a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About MedScanIT</h4>
+        <p>MedScanIT is a comprehensive pharmacy and health PWA designed to help English speakers navigate Italian healthcare and medications.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <p><a href="https://medscanit.netlify.app">Main App</a></p>
+        <p><a href="/">Blog</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Disclaimer</h4>
+        <p>This blog is for informational purposes only and is not a substitute for professional medical advice. Always consult a healthcare provider before making medical decisions.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 MedScanIT. All rights reserved. | <a href="#" style="color: var(--text-secondary);">Privacy Policy</a> | <a href="#" style="color: var(--text-secondary);">Terms of Service</a></p>
+    </div>
+  </footer>
+
+  <script src="blog_data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug');
+      const loadingEl = document.getElementById('loading');
+      const contentEl = document.getElementById('post-content');
+      const errorEl = document.getElementById('error-message');
+
+      // Function to format date
+      function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString + 'T00:00:00').toLocaleDateString('en-US', options);
+      }
+
+      if (!slug) {
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      const post = getPostBySlug(slug);
+
+      if (!post) {
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      // Check if post is published
+      const today = new Date().toISOString().split('T')[0];
+      if (post.publishDate > today) {
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      // Update page title and meta tags
+      document.title = post.title + ' - MedScanIT Blog';
+      document.querySelector('meta[name="description"]').setAttribute('content', post.tldr);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', post.title);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', post.tldr);
+
+      // Create Schema.org JSON-LD
+      const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        'headline': post.title,
+        'description': post.tldr,
+        'datePublished': post.publishDate,
+        'author': {
+          '@type': 'Organization',
+          'name': 'MedScanIT'
+        },
+        'image': 'https://medscanit.netlify.app/og-image.png',
+        'articleBody': post.body.replace(/<[^>]*>/g, '')
+      };
+      document.getElementById('schema-json').textContent = JSON.stringify(schema);
+
+      // Render the post
+      const dateFormatted = formatDate(post.publishDate);
+      contentEl.innerHTML = `
+        <div class="article-header">
+          <span class="article-category">${post.category}</span>
+          <h1 class="article-title">${post.title}</h1>
+          <div class="article-meta-info">
+            <span class="article-date">${dateFormatted}</span>
+            <span class="article-readtime">${post.readTime}</span>
+          </div>
+        </div>
+        <div class="article-content">
+          ${post.body}
+        </div>
+        <div class="article-nav">
+          <button class="back-button" onclick="window.history.back()">← Back</button>
+          <a href="/" class="home-button">← All Posts</a>
+        </div>
+      `;
+
+      loadingEl.style.display = 'none';
+      contentEl.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
