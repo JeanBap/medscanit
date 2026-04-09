@@ -2927,10 +2927,7 @@ const blogPosts = [
     <p><strong>Q: What happens if I need healthcare while temporarily outside Italy as an SSN member?</strong></p>
     <p>Within the EU, your European Health Insurance Card (EHIC) covers emergency and necessary healthcare. Outside the EU, SSN coverage doesn't apply—travel insurance is recommended. For planned medical treatments while traveling, your Italian doctor can provide referrals or documentation supporting healthcare access abroad, though you typically pay and seek reimbursement later.</p>`,
   }
-];
-
-function getPublishedPosts() {
-  const today = new Date().toISOString().split('T')[0,
+,
 {
     num: 37,
     title: "How Italian Pharmacies Are Different from Other Countries",
@@ -16485,6 +16482,9 @@ function getPublishedPosts() {
       </article>`
   }
 ];
+
+function getPublishedPosts() {
+  const today = new Date().toISOString().split('T')[0];
   return blogPosts.filter(post => post.publishDate <= today).sort((a, b) => {
     return new Date(b.publishDate) - new Date(a.publishDate);
   });
